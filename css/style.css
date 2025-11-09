@@ -606,6 +606,11 @@ section[id] {
     max-width: 95%;
     margin-top: 40px;
   }
+  .newyear-title-bright {
+    padding-top: 80px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
+   
+    line-height: 1.2;   /* ← 行間も少し詰めてバランスよく */
+  }
 
   /* アイコン位置を調整（見栄え重視で再配置） */
   .box1 { top: 90%; left: 20%; }
@@ -633,7 +638,7 @@ section[id] {
 
   /* タイトルも少し小さく */
   .top-page > h1 {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -680,6 +685,7 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
+
 
 
 
