@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIが占うあなたの性格と来年の運勢</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden { display: none; }
+    .answer-btn.disabled { pointer-events: none; opacity: 0.6; }
+    .answer-btn.selected { background-color: #fbbf24; color: #1f2937; }
+    #progress-bar { height: 10px; background-color: #fbbf24; width: 0%; transition: width 0.3s; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center p-4">
+
+  <h1 class="text-3xl font-bold mb-6 text-center">AIが占うあなたの性格と来年の運勢</h1>
+
+  <!-- プログレス -->
+  <div id="progress-section" class="w-full max-w-xl mb-4">
+    <div class="flex justify-between mb-1">
+      <span id="progress-text">1 / 5</span>
+    </div>
+    <div class="w-full bg-gray-300 rounded-full">
+      <div id="progress-bar" class="rounded-full"></div>
+    </div>
+  </div>
+
+  <!-- クイズ本体 -->
+  <div id="quiz-content" class="w-full max-w-xl bg-white p-6 rounded-lg shadow-md">
+    <h2 id="question" class="text-2xl font-bold mb-8 text-center min-h-[100px]"></h2>
+    <div id="answers" class="grid grid-cols-1 gap-4"></div>
+  </div>
+
+  <!-- ローディング演出 -->
+  <div id="loading-container" class="hidden w-full max-w-xl p-6 text-center text-xl font-semibold">
+    <p></p>
+  </div>
+
+  <!-- 結果表示 -->
+  <div id="result-container" class="hidden w-full max-w-xl bg-white p-6 rounded-lg shadow-md text-center">
+    <h2 id="result-title" class="text-2xl font-bold mb-4"></h2>
+    <img id="result-image" class="mx-auto mb-4 rounded-lg" width="200" alt="">
+    <p id="result-description" class="mb-4 text-gray-700"></p>
+    <p id="result-message" class="mb-6 font-semibold text-gray-900"></p>
+
+    <!-- 🔹トップページへ戻るボタン -->
+    <a href="index.html"
+       class="inline-block bg-sky-400 hover:bg-sky-500 text-white font-semibold py-2 px-6 rounded-full transition-all shadow">
+       トップページへ戻る
+    </a>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const quizData = [
+      { question: "友人がふさぎ込んでいます。見て見ぬふりナシなら、あなたはどっちのタイプ？", answers: [
+          { text: "「どうしたの？ 悩みあったら聴くよ」と聞き役・共感モードになる。", type: "empathy" },
+          { text: "「何ができる？ 一緒に解決策を探そう」とレスキュー魂が騒ぐ。", type: "leader" }
+        ]},
+      { question: "デカい壁（物理的な壁じゃないよ）にぶち当たった！ 　さて、あなたはどうする？", answers: [
+          { text: "まずは立ち止まって分析。冷静にじっくり作戦を練る。", type: "analysis" },
+          { text: "考えるよりとりあえず行動！動きながら考える。", type: "adventure" }
+        ]},
+      { question: "「疲れた〜」ってなった時、どうやってリセットする？", answers: [
+          { text: "静かな場所で「無」になる時間を過ごす。", type: "relax" },
+          { text: "好きなもの食べて、幸せな気持ちにどっぷり浸る。", type: "healing" }
+        ]},
+      { question: "仕事や趣味で夢中になるのはどんな時？", answers: [
+          { text: "細部にまでこだわって、一人で完璧を目指すとき。", type: "artisan" },
+          { text: "仲間と協力して、ワイワイ楽しく進めているとき。", type: "optimism" }
+        ]},
+      { question: "予定が変わった時、気持ちをどう切り替える？", answers: [
+          { text: "予想外のことに「楽しいかも！」って、ワクワクするタイプなので問題なし。", type: "freedom" },
+          { text: "ちょっと不安。次のステップを慎重に考える。", type: "cautious" }
+        ]}
+    ];
+
+    const messages = [
+      "星を読み解いています…🌠",
+      "あなたの心をスキャン中💫",
+      "運命のページをめくっています📖",
+      "少々お待ちください🎄"
+    ];
+
+    const resultsData = {
+      leader:{title:"リーダータイプ",description:"自信と行動力にあふれ、周囲を自然に引っ張っていくあなた。責任感が強く、困っている人を放っておけません。また、人間関係を重視し、共感や支援を通じて周囲の人の能力を上手く引き出すことができる人です。",fortune:"そんなあなたの2026年は、「新しい形の信頼」を育てる年。責任を一人で抱え込まず、仲間と分かち合うことがカギになりそうです。ときどき「自分が頑張らなきゃ」と気を張りすぎて疲れる瞬間もあるけれど、誰かに頼ることも、立派なリーダーシップの一つ。困った時ほど「手を貸して」と言ってみてください。あなたが人を信じるほど、周りもあなたを信じて動き出します。",imageUrl:"images/leader.jpg"},
+      empathy:{title:"共感タイプ",description:"人の気持ちに寄り添えるあなた。誰かの涙にも笑顔にも自然と心を動かされる、あたたかい感性の持ち主です。あなたの優しさが、周りの人に安心感や元気を届けています。感情にしっかり共鳴できるからこそ、人とのつながりを深く築ける存在です。",fortune:"そんなあなたの2026年は、「優しさを循環させる年」。人の気持ちを感じすぎて心が少し疲れることもあるかもしれません。でも、そんな時こそ「今日は自分を労わる日」と決めて、静かな時間を持ちましょう。あなたのやさしさは、一度“自分”に戻してあげることで、もっと輝きます。涙を流した日も、必ずやさしい笑顔に戻れますよ。",imageUrl:"images/empathy.jpg"},
+      adventure:{title:"冒険タイプ",description:"新しいことにワクワクする冒険心の持ち主。挑戦を恐れず、未知の世界にも笑顔で飛び込める勇敢な人です。少し衝動的になることもありますが、それが人生を面白くし、周りに驚きや感動をもたらします。",fortune:"そんなあなたの2026年は、チャンスが風のようにやってくる年。やりたいことが増えて、少し散らかってしまう時もあるかもしれません。でも、失敗も経験も全部があなたの“冒険地図”になります。「うまくいかなかった」と思う日も、それは物語の一章。その軽やかさと挑戦心が、誰かに勇気を与える一年です。",imageUrl:"images/adventure.jpg"},
+      analysis:{title:"分析タイプ",description:"冷静で観察力が高いあなた。物事の本質を見抜き、データや事実から最適な答えを導きます。感情表現や自己主張は控えめですが、周囲に流されず、冷静な判断ができます。",fortune:"そんなあなたの2026年は、「知識と直感のバランス」を学ぶ年。つい頭で考えすぎて動けなくなる場面もありそうですが、「なんとなくこれがいい」と思えたなら、それを信じてみてください。理屈では説明できない幸運が、意外と多い一年です。あなたの冷静さがあるからこそ、直感が冴える瞬間が訪れます。",imageUrl:"images/analysis.jpg"},
+      healing:{title:"癒しタイプ",description:"穏やかであたたかく、周りを包み込むような雰囲気のあなた。誰かの心をほっとさせる不思議な力があります。また、協調性や共感力も高く、感情のコントロールが得意で、忍耐力があるという特徴があります。 ",fortune:"そんなあなたの2026年は、「あなた自身が癒される」年。これまで人のために頑張ってきた分、心が少しお休みを求めているかもしれません。自然の中で深呼吸したり、好きな香りに包まれたり、そんな“静かな時間”が幸運を呼び込みます。あなたが笑顔でいるだけで、周りの人も救われます。",imageUrl:"images/healing.jpg"},
+      artisan:{title:"職人タイプ",description:"コツコツと努力を重ねる粘り強いあなた。手を抜かず、どんな仕事にも誠実に向き合います。頑固だというイメージがありますが、それは強い信念の表れ、信頼の証！",fortune:"そんなあなたの2026年は、「努力が報われる年」。今まで積み重ねてきた小さな工夫や誠実さが、形になって返ってきます。ただ、完璧を求めすぎて息が詰まる時は、「今日はここまででよし」と自分に言ってあげてください。焦らず、丁寧に続ける姿勢が、一番の幸運の種です。ゆっくり育てた夢ほど、長く咲きます。",imageUrl:"images/artisan.jpg"},
+      optimism:{title:"楽観タイプ",description:"どんなときも明るく前向き、太陽のような笑顔で周囲を照らすあなた。落ち込むより『まあいっか！』と切り替える天才です。たまに深く考えずに突っ走るのもチャームポイント。",fortune:"来年は、あなたの笑顔が周りを明るくする年。ちょっとしたトラブルや予想外の出来事もあるかもしれませんが、「まぁ、これも人生だね」と笑えるあなたなら、すぐに立ち直れます。落ち込む日があっても、その分だけ誰かの気持ちがわかるようになります。あなたの明るさは“元気の連鎖”を生む太陽です。",imageUrl:"images/optimism.jpg"},
+      cautious:{title:"慎重タイプ",description:"常に一歩先を読んで動ける計画派。リスクを避け、安全にゴールへ導く堅実さがあります。慎重すぎてチャンスを逃すこともありますが、あなたの安定感はみんなの支えです。",fortune:"そんなあなたの2026年は、「ゆっくり進むことでチャンスが見える」年。焦らず、丁寧に考えるあなたのペースが正解です。ただし、完璧を求めてスタートが遅れそうなときは、「とりあえず一歩だけ」と小さく始めてみましょう。安心できるペースで前に進めば、結果は自然についてきます。",imageUrl:"images/cautious.jpg"},
+      freedom:{title:"自由人タイプ",description:"枠にとらわれず、自分のリズムで生きる自由人。発想がユニークで、どこにいても自分の世界を持っています。気まぐれに見られることもあるけれど、その自然体が魅力です。",fortune:"そんなあなたの2026年は、想像力が花開く年。自由な発想が評価され、思わぬところからチャンスが舞い込みそう。ただ、気ままに動きすぎて「何をしたいんだっけ？」と迷う瞬間も。そんな時は、心がワクワクする方を選べば大丈夫。あなたの自由は、周りにも勇気をくれる光です。",imageUrl:"images/freedom.jpg"},
+      relax:{title:"のんびりタイプ",description:"マイペースで、どんなときも穏やか。焦らず自然体でいることで周りまで落ち着かせる不思議な存在です。ちょっとスローペースすぎることもありますが、それもあなたらしさ。",fortune:"そんなあなたの2026年は、「自分のペースが一番の武器」になる年。世の中が慌ただしく見えても、焦らず、自分のリズムを守ってください。あなたがゆっくり歩くことで、見落としがちな幸せをちゃんと拾えます。落ち込む日があっても、無理に元気にならなくて大丈夫。穏やかな時間の中で、気づけばちゃんと前に進んでいます。",imageUrl:"images/relax.jpg"}
+    };
+
+    let currentQuestionIndex = 0;
+    let userScores = { empathy:0, leader:0, analysis:0, adventure:0, relax:0, healing:0, artisan:0, optimism:0, freedom:0, cautious:0 };
+
+    const questionEl = document.getElementById('question');
+    const answersEl = document.getElementById('answers');
+    const quizContentEl = document.getElementById('quiz-content');
+    const resultContainerEl = document.getElementById('result-container');
+    const loadingContainerEl = document.getElementById('loading-container');
+    const progressBarEl = document.getElementById('progress-bar');
+    const progressTextEl = document.getElementById('progress-text');
+    const progressSectionEl = document.getElementById('progress-section');
+
+    function loadQuestion(){
+      if(currentQuestionIndex<quizData.length){
+        updateProgress();
+        const current = quizData[currentQuestionIndex];
+        questionEl.innerText = current.question;
+        answersEl.innerHTML = '';
+        current.answers.forEach(ans=>{
+          const btn = document.createElement('button');
+          btn.innerText = ans.text;
+          btn.className = "answer-btn bg-gray-200 p-4 rounded-lg font-semibold hover:bg-gray-300 transition-all";
+          btn.onclick = (e)=>selectAnswer(ans.type, e.currentTarget);
+          answersEl.appendChild(btn);
+        });
+      } else startResultSequence();
+    }
+
+    function selectAnswer(type,btn){
+      const buttons = answersEl.querySelectorAll('.answer-btn');
+      buttons.forEach(b=>b.classList.add('disabled'));
+      btn.classList.add('selected');
+      if(userScores.hasOwnProperty(type)) userScores[type]++;
+      setTimeout(()=>{currentQuestionIndex++; loadQuestion();},500);
+    }
+
+    function updateProgress(){
+      const progress = (currentQuestionIndex/quizData.length)*100;
+      progressBarEl.style.width = progress+'%';
+      progressTextEl.innerText=`${currentQuestionIndex+1} / ${quizData.length}`;
+    }
+
+    function startResultSequence(){
+      quizContentEl.classList.add('hidden');
+      progressSectionEl.classList.add('hidden');
+      loadingContainerEl.classList.remove('hidden');
+      let i=0;
+      const loadingText=loadingContainerEl.querySelector('p');
+      const interval=setInterval(()=>{loadingText.innerHTML=messages[i%messages.length]; i++;},1500);
+      setTimeout(()=>{
+        clearInterval(interval);
+        showResult();
+      },5000);
+    }
+
+    function showResult(){
+  // 最大スコアを取得
+  let max = Math.max(...Object.values(userScores));
+
+  // 最大スコアを持つタイプをすべて抽出
+  const topTypes = Object.keys(userScores).filter(t => userScores[t] === max);
+
+  // 同点の場合はランダムで1つ選ぶ
+  const resultType = topTypes[Math.floor(Math.random() * topTypes.length)];
+
+  // 結果データを取得して反映
+  const r = resultsData[resultType];
+  document.getElementById('result-title').innerText = r.title;
+  document.getElementById('result-image').src = r.imageUrl;
+  document.getElementById('result-image').alt = r.title;
+  document.getElementById('result-description').innerText = r.description;
+  document.getElementById('result-message').innerText = r.fortune;
+
+  // ローディングを隠して結果を表示
+  loadingContainerEl.classList.add('hidden');
+  resultContainerEl.classList.remove('hidden');
+}
+
+  
+
+    if(quizContentEl) loadQuestion();
+
+  });
+  </script>
+
+</body>
+</html>

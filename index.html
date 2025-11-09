@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device‑width, initial-scale=1.0">
+  <title>年末のご挨拶</title>
+  
+<!-- よくある質問の回答が開くようにするためのjsコード -->
+<script src="https://cdn.tailwindcss.com"></script> 
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- /* Google Fonts 読み込み（HTMLの<head>に追加してください） -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+
+ <!--ファビコン-->
+<link rel="icon" type="image/svg" href="images/my-favicon.png">
+
+
+<!--リセットCSS-->
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/re
+ss.min.css">
+
+<!--オリジナルCSS-->
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="inner">
+    <h1 class="logo">Greeting Card</h1>
+
+    <!-- QRコード（右上） -->
+    <a href="https://スマホ用リンク先.com" class="qr-link" target="_blank">
+      <img src="images/g-qr.png" alt="QR Code" class="qr-code">
+    </a>
+
+    <nav class="global-nav">
+      <ul>
+        <li><a href="#">ページTOP</a></li>
+        <li><a href="#fortune">ＡＩ運勢占い</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#about">来年の干支「丙午」</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+   <!-- メイン -->
+  <main class="top-page">
+
+<!-- クリスマスツリー/セクション -->
+<h1 class="newyear-title-bright">
+  ありがとうございました<br>よいお年をお迎えください
+</h1>
+
+<style>
+.newyear-title-bright {
+  font-family: "Yu Mincho", "Hiragino Maru Gothic ProN", serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 1.6;
+  text-align: center;
+  background: linear-gradient(90deg, #e0b75b, #d45b5b, #f5c8a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.06em;
+  margin: 2.5rem 0 1rem;
+  text-shadow: 0 2px 8px rgba(255, 237, 204, 0.4);
+}
+</style>
+
+
+
+<div class="tree-container">
+  <!-- ツリーイラスト -->
+  <img src="images/tree.jpg" alt="tree">
+
+  <!-- 箱イラスト1 -->
+  <div class="icon box1" style="--i:1;">
+    <img src="images/box1.png" alt="box1">
+    <span class="tooltip">さいこう！</span>
+  </div>
+
+  <!-- 箱イラスト2 -->
+  <div class="icon box2" style="--i:2;">
+    <img src="images/box2.png" alt="box2">
+    <span class="tooltip">ノリノリ！</span>
+  </div>
+
+  <!-- 箱イラスト3 -->
+  <div class="icon box3" style="--i:3;">
+    <img src="images/box3.png" alt="box3">
+    <span class="tooltip">うれしい！</span>
+  </div>
+
+  <!-- 箱イラスト4 -->
+  <div class="icon box4" style="--i:4;">
+    <img src="images/box4.png" alt="box4">
+    <span class="tooltip">しあわせ！</span>
+  </div>
+
+  <!-- 箱イラスト5 -->
+  <div class="icon box5" style="--i:5;">
+    <img src="images/icon-box1.png" alt="box5">
+    <span class="tooltip">ドキドキ！</span>
+  </div>
+
+  <!-- 箱イラスト6 -->
+  <div class="icon box6" style="--i:6;">
+    <img src="images/icon-box2.png" alt="box6">
+    <span class="tooltip">ばっちり！</span>
+  </div>
+
+  <!-- 箱イラスト7 -->
+  <div class="icon box7" style="--i:7;">
+    <img src="images/shishi.png" alt="box7">
+    <span class="tooltip">ありがとー！</span>
+  </div>
+
+  <!-- 箱イラスト8 -->
+  <div class="icon box8" style="--i:8;">
+    <img src="images/box5.png" alt="box8">
+    <span class="tooltip">いいね!</span>
+  </div>
+
+   <!-- 箱イラスト9 -->
+  <div class="icon box9" style="--i:9;">
+    <img src="images/box6.png" alt="box9">
+    <span class="tooltip">すごーい!</span>
+  </div>
+
+   <!-- 箱イラスト10 -->
+  <div class="icon box10" style="--i:10">
+    <img src="images/fuji.png" alt="box10">
+    <span class="tooltip">たのしい!</span>
+  </div>
+
+   <!-- サンタのイラスト11 -->
+  <div class="icon box11" style="--i:11">
+    <img src="images/santaclaus.png" alt="santa">
+    <span class="tooltip">わくわく！</span>
+  </div>
+
+   <!-- 星1 -->
+  <div class="icon box12" style="--i:12">
+    <img src="images/star1.png" alt="star1">
+    <span class="tooltip">ばんざーい!</span>
+  </div>
+
+   <!-- 星2 -->
+  <div class="icon box13" style="--i:13">
+    <img src="images/cat.png" alt="star2">
+    <span class="tooltip">やったー!</span>
+  </div>
+
+   <!-- 星3 -->
+  <div class="icon box14" style="--i:14">
+    <img src="images/star3.png" alt="star3">
+    <span class="tooltip">“わーい!</span>
+  </div>
+
+   <!-- 星4 -->
+  <div class="icon box15" style="--i:15">
+
+    <img src="images/star4.png" alt="star4">
+    <span class="tooltip">ついてる!</span>
+  </div>
+
+  </div><!-- tree-container -->
+
+  <!-- AI Fortune Teller Section -->
+<!-- AI Fortune Teller Section（和モダン版） -->
+<section id="fortune" class="text-center my-20 py-16 px-4 bg-[#f8f6f2] border-t border-b border-[#bfa36a]/40">
+  <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#a3423c]" style="font-family: 'Yu Mincho', serif;">
+    🔮 AIが占うあなたの性格と来年の運勢
+  </h2>
+    <p class="text-[#2b2b2b] italic mb-8 leading-relaxed" style="font-family: 'Hiragino Kaku Gothic ProN', sans-serif;">
+      １０パターンの性格からあなたに最も近いものを選び来年の運勢を占います。<br>❄当たるもＡＩ❄ 当たらぬもＡＩ❄<br>お気軽にお楽しみください。<br>
+    </p>
+
+   <a href="fortune.html"
+     class="inline-block bg-gradient-to-r from-[#bfa36a] to-[#a3423c] text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition transform hover:scale-105 duration-300"
+     style="font-family: 'Hiragino Kaku Gothic ProN', sans-serif;">
+     ＡＩ占いへ進む
+  </a>
+</section>
+
+  <!-- Canvas for Snow -->
+  <canvas id="snowCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="z-index:0;"></canvas>
+</section>
+
+<script>
+// --- Colorful Snow Animation ---
+const canvas = document.getElementById('snowCanvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = canvas.offsetWidth;
+let height = canvas.height = canvas.offsetHeight;
+
+window.addEventListener('resize', () => {
+  width = canvas.width = canvas.offsetWidth;
+  height = canvas.height = canvas.offsetHeight;
+});
+
+// Snowflake class
+class Snowflake {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.radius = Math.random() * 4 + 2; // size
+    this.speedY = Math.random() * 1.5 + 0.5;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.opacity = Math.random() * 0.5 + 0.5;
+    // Random color: white, light blue, yellow
+    const colors = ['rgba(255,255,255,', 'rgba(173,216,230,', 'rgba(255,255,150,'];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+  }
+  update() {
+    this.y += this.speedY;
+    this.x += this.speedX;
+    if (this.y > height) this.y = 0;
+    if (this.x > width) this.x = 0;
+    if (this.x < 0) this.x = width;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color + this.opacity + ')';
+    ctx.fill();
+  }
+}
+
+// Create snowflakes
+const numFlakes = 120;
+const flakes = [];
+for (let i = 0; i < numFlakes; i++) {
+  flakes.push(new Snowflake());
+}
+
+// Animation loop
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  flakes.forEach(f => {
+    f.update();
+    f.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+
+
+<style>
+/* --- Snow Animation (Pop & Visible) --- */
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(200, 220, 255, 0.9) 1px, transparent 1px),
+                    radial-gradient(rgba(220, 240, 255, 0.8) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  animation: snowFall 15s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+</style>
+
+
+
+
+ <!--よくある質問 -->
+   <section id="faq" class="max-w-3xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-2">AIが答える年末年始よくある質問</h2>
+    <!-- &#11088; が ⭐（U+2B50）に対応 -->
+    <p class="text-gray-700 italic text-lg md:text-xl font-medium leading-snug">
+  &#11088; 年末年始は人もAIもアップデートにいい時期です &#11088;
+</p>
+  </div>
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+                        <span>大掃除って、いつから始めればいいんですか？</span>
+                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p>「やる気が出た時」です。大掃除は本来、年神さまを迎えるための準備ですが、そのやる気はお茶を淹れて休憩するあたりで消えてしまいがち。<br>
+                        日本の約6割の家庭が大掃除を終えられず年を越すという統計があります。つまり、新年は（たぶん年神さまも…）、ほこりがあってもちゃんとやってきます。
+                     </p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+                        <span> こたつから出られないのですが、どうしたらいいですか？</span>
+                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p>AIによる観測では、こたつから自力で出られる確率は、１月上旬で約12％、下旬では3％まで低下します。こたつは暖房器具でありながら、人間の意思を溶かす魔力を持っています。無理に出ようとせず、まずはリモコン・お茶・みかんを手の届く範囲にそろえましょう。 それが冬を安全に過ごすための、こたつ三種の神器です
+                        </p>
+                    </div>
+                </div>
+                 <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+                        <span>お年玉の相場、上がりすぎてませんか？ </span>
+                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p>その通りです。昭和の子どもは500円で大喜びしていたのに、令和では“千円だと少し沈黙が走る”という現象が確認されています。でも不思議なもので、包む側の気持ちはどの時代も同じ。<br>「これで喜んでくれたらいいなぁ～」と思うその気持ちこそが、いちばん“福”を呼ぶお年玉です…と思いたいですね。</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+                        <span>初詣は、いつ行けばご利益がありますか？</span>
+                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p>元日は混みますが、神さまには人間と違い“オーバーワーク”の概念はありません。三が日でも、松の内でも、旧正月でもOKです。要は「行こう」と思った時がベストタイミング。<br>ちなみにAIの統計では、夜明け前に参拝した人の7割が、帰宅後に二度寝しています。ご利益は、たぶんそのぬくもりの中にもあります。</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+                        <span>新年の抱負、毎年3日で忘れるんですが？ </span>
+                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p> ご安心ください。人間の「新年の決意」の平均持続日数は、約2.7日です。つまり、あなたは平均より優秀です。大切なのは、何度でも立て直せること。<br> “3日坊主”とは、“4日目にまた始められる人”の別名なのです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- AIのひとことコラム -->
+<div class="ai-column bg-gradient-to-br from-amber-50 via-yellow-50 to-rose-50 rounded-2xl p-8 mt-16 mx-auto max-w-2xl text-center shadow-lg border border-amber-200 relative overflow-hidden">
+
+  <!-- 背景に梅模様 -->
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,_#f59e0b_1%,_transparent_40%),_radial-gradient(circle_at_80%_80%,_#f43f5e_1%,_transparent_40%)]"></div>
+
+  <h3 class="relative text-2xl font-bold text-amber-800 mb-4 tracking-wide">AIのひとことコラム</h3>
+  
+  <p class="relative text-gray-800 leading-relaxed text-base md:text-lg">
+    AIは静かに年を越します。でもあなたの行動は、来年のFAQ改善データとして自動記録させていただきます。<br>
+    新しい一年が バグよりも笑いの多い日々になりますように<br>良いお年を<span class="inline-block ml-1">🎍</span>
+  </p>
+</div>
+
+<style>
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ai-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+
+<style>
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ai-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+
+<style>
+/* ゆっくりと上下に揺れるアニメーション */
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
+
+/* カードをふわっと浮かせる演出 */
+.ai-column:hover {
+  transform: translateY(-4px);
+}
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+</style>
+
+
+        
+
+<!-- 来年の干支「丙午」とは？セクション -->
+<section id="about" class="py-16 bg-gradient-to-b from-[#fdf7ef] to-[#f8f3e9]">
+  <div class="wrapper max-w-5xl mx-auto px-6">
+    
+    <h2 class="text-3xl md:text-4xl font-serif tracking-wide text-[#a7312c] border-b-2 border-[#c0a050] inline-block pb-2 mb-10">
+      来年の干支「丙午」とは？
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- カード1 -->
+      <div class="p-6 bg-white rounded-2xl shadow-lg border border-[#c0a050]">
+        <p class="text-gray-800 text-base md:text-lg leading-relaxed font-sans">
+          <span class="first-letter:text-4xl first-letter:text-[#c0a050] first-letter:font-serif mr-1">
+          「丙午（ひのえうま）」</span>は干支の組み合わせのひとつで、火の気が強く情熱と勢いを象徴します。かつては「気が強い女性が生まれる年」とされ、1966年は出生数が大幅に減少しました。
+        </p>
+      </div>
+
+      <!-- カード2 -->
+      <div class="p-6 bg-white rounded-2xl shadow-lg border border-[#c0a050]">
+        <p class="text-gray-800 text-base md:text-lg leading-relaxed font-sans">
+          現代では、挑戦するエネルギーに満ちた年と考えられます。2026年の丙午は、小さな火種を育てる勇気が運を動かす年。恐れず燃やすことが、何かを温める力になるでしょう。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- セクション区切り線 -->
+<div class="section-divider my-20 text-center">
+  <div class="divider-line mx-auto mb-3"></div>
+  <p class="text-sm text-gray-500 italic">（お暇な方はこちらもどうぞ）</p>
+</div>
+
+<!-- ショートストーリー（年末年始・お暇なら読んで） -->
+<div class="card-wrapper mt-10">
+  <div class="card bg-gray-50 border border-gray-200 shadow-inner">
+    <img src="images/water-trace.jpg" alt="水の跡" class="rounded-lg mb-4">
+    <h3 class="text-lg font-semibold mb-2">自作ショートストーリー (所要時間約10分)</h3>
+    <p class="text-gray-700 text-sm mb-4">
+      ―SF短編小説のスピンオフ―<br>なんとなくLoveストーリー
+    </p>
+    <a href="https://yoikonoyo.github.io/short-story/" target="_blank" class="story-link inline-block">
+      〚水の跡〛を読む
+    </a>
+  </div>
+</div>
+
+<style>
+/* --- カード全体和モダン調整 --- */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: #fdf7ef;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 350px;
+  padding: 1rem 1rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.story-link {
+  background: linear-gradient(90deg, #e0b75b, #d45b5b);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.story-link:hover {
+  background: linear-gradient(90deg, #d45b5b, #e0b75b);
+}
+
+/* --- セクション区切り線（可愛い＆おしゃれVer.） --- */
+.section-divider {
+  position: relative;
+}
+
+.divider-line {
+  width: 180px;
+  height: 2px;
+  border-top: 2px dotted #dcbf80;
+  position: relative;
+}
+
+.divider-line::before,
+.divider-line::after {
+  content: "✿";
+  position: absolute;
+  top: -10px;
+  font-size: 0.9rem;
+  color: #d6a35c;
+}
+
+.divider-line::before {
+  left: -20px;
+}
+
+.divider-line::after {
+  right: -20px;
+}
+</style>
+
+  </main>
+
+<!-- Footer -->
+<footer class="site-footer"> <div class="inner"> 
+  <p>© 2025 Yoiko no “Yo” All rights reserved.</p> 
+</div> 
+</footer>
+
+<style>
+/* --- 単独カード用スタイル --- */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #f5f5f7; /* 淡いグレーで上品に */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 350px;
+  padding: 1rem 1rem 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0 1rem;
+}
+
+.card a {
+  display: inline-block;
+  background: #5a8d7c; /* 他の緑より落ち着いたトーン */
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.25s ease;
+}
+
+.card a:hover {
+  background: #4b7a6c;
+}
+
+</style>
+
+</body>
+</html>
