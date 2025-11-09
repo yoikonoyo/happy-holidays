@@ -623,7 +623,7 @@ section[id] {
   .box12 { top: 43%; left: 23%; }
   .box13 { top: 16%; left: 2%; }
   .box14 { top: 24%; left: 50%; }
-  .box15 { top: 44%; left: 9%; }
+  .box15 { top: 44%; left: 7%; }
 
   /* アイコンを少し小さく */
   .icon {
@@ -680,6 +680,7 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
+
 
 
 
