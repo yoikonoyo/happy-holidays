@@ -615,7 +615,7 @@ section[id] {
   .box5 { top: 77%; left: 70%; }
   .box6 { top: 61%; left: 63%; }
   
-  .box7 { top: 53%; left: 2%; }
+  .box7 { top: 54%; left: 2%; }
   .box8 { top: 89%; left: 79%; }
   .box9 { top: 90%; left: 63%; }
   .box10 { top: 32%; left: 70%; }
@@ -623,7 +623,7 @@ section[id] {
   .box12 { top: 43%; left: 23%; }
   .box13 { top: 16%; left: 2%; }
   .box14 { top: 24%; left: 50%; }
-  .box15 { top: 46%; left: 9%; }
+  .box15 { top: 44%; left: 9%; }
 
   /* アイコンを少し小さく */
   .icon {
@@ -680,5 +680,6 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
+
 
 
