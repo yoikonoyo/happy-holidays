@@ -607,7 +607,7 @@ section[id] {
     margin-top: 40px;
   }
   .newyear-title-bright {
-    padding-top: 80px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
+    padding-top: 120px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
    
     line-height: 1.2;   /* ← 行間も少し詰めてバランスよく */
   }
@@ -685,6 +685,7 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
+
 
 
 
