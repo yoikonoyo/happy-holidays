@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head> 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device‑width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>年末のご挨拶</title>
-  
-<!-- よくある質問の回答が開くようにするためのjsコード -->
-<script src="https://cdn.tailwindcss.com"></script> 
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-<!-- /* Google Fonts 読み込み（HTMLの<head>に追加してください） -->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Tailwind & Alpine -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
 
- <!--ファビコン-->
-<link rel="icon" type="image/svg" href="images/my-favicon.png">
+  <!-- ファビコン -->
+  <link rel="icon" type="image/svg" href="images/my-favicon.png">
 
+  <!-- リセットCSS（修正版） -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 
-<!--リセットCSS-->
-<link rel="stylesheet" href="https://unpkg.com/ress/dist/re
-ss.min.css">
-
-<!--オリジナルCSS-->
-<link rel="stylesheet" href="css/style.css">
-
+  <!-- オリジナルCSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header class="site-header">
   <div class="inner">
@@ -55,48 +52,25 @@ ss.min.css">
   ありがとうございました<br>よいお年をお迎えください
 </h1>
 
-<style>
-.newyear-title-bright {
-  font-family: "Yu Mincho", "Hiragino Maru Gothic ProN", serif;
-  font-weight: 600;
-  font-size: 2.6rem;
-  line-height: 1.6;
-  text-align: center;
-  background: linear-gradient(90deg, #e0b75b, #d45b5b, #f5c8a0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 0.06em;
-  margin: 2.5rem 0 0.5rem;
-  text-shadow: 0 2px 8px rgba(255, 237, 204, 0.4);
-  padding-top: 70px; /* ← 100px から少し詰めました */
-}
-
-/* スマホ表示時の調整 */
-@media (max-width: 768px) {
-  .newyear-title-bright {
-    font-size: 2.2rem;
-    padding-top: 90px;   /* ← 120px → 90px に変更 */
-    margin-bottom: 0.3rem;
-  }
-}
-</style>
-
-
-
-
 <div class="tree-container">
   <!-- ツリーイラスト -->
   <img src="images/tree.jpg" alt="tree">
 
+  <p class="tree-message">
+  <span class="pc-only">カーソルを動く飾りに合わせてみて！</span>
+  
+  <span class="sp-only">動く飾りをタップしてみて！</span>
+</p>
+
   <!-- 箱イラスト1 -->
   <div class="icon box1" style="--i:1;">
-    <img src="images/box1.png" alt="box1">
+    <img src="images/icon-box3.png" alt="icon-box3">
     <span class="tooltip">さいこう！</span>
   </div>
 
   <!-- 箱イラスト2 -->
   <div class="icon box2" style="--i:2;">
-    <img src="images/box2.png" alt="box2">
+    <img src="images/box1.png" alt="box2">
     <span class="tooltip">ノリノリ！</span>
   </div>
 
@@ -108,7 +82,7 @@ ss.min.css">
 
   <!-- 箱イラスト4 -->
   <div class="icon box4" style="--i:4;">
-    <img src="images/box4.png" alt="box4">
+    <img src="images/box2.png" alt="box4">
     <span class="tooltip">しあわせ！</span>
   </div>
 
@@ -126,7 +100,7 @@ ss.min.css">
 
   <!-- 箱イラスト7 -->
   <div class="icon box7" style="--i:7;">
-    <img src="images/shishi.png" alt="box7">
+    <img src="images/shishi.png" alt="box7" class="small-icon">
     <span class="tooltip">ありがとー！</span>
   </div>
 
@@ -144,7 +118,7 @@ ss.min.css">
 
    <!-- 箱イラスト10 -->
   <div class="icon box10" style="--i:10">
-    <img src="images/fuji.png" alt="box10">
+    <img src="images/fuji.png" alt="box10" class="small-icon">
     <span class="tooltip">たのしい!</span>
   </div>
 
@@ -162,7 +136,7 @@ ss.min.css">
 
    <!-- 星2 -->
   <div class="icon box13" style="--i:13">
-    <img src="images/cat.png" alt="star2">
+    <img src="images/cat.png" alt="beckoning cat" class="small-icon">
     <span class="tooltip">やったー!</span>
   </div>
 
@@ -200,7 +174,7 @@ ss.min.css">
 
   <!-- Canvas for Snow -->
   <canvas id="snowCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="z-index:0;"></canvas>
-</section>
+
 
 <script>
 // --- Colorful Snow Animation ---
@@ -265,37 +239,6 @@ function animate() {
 
 animate();
 </script>
-
-
-
-<style>
-/* --- Snow Animation (Pop & Visible) --- */
-.snow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(200, 220, 255, 0.9) 1px, transparent 1px),
-                    radial-gradient(rgba(220, 240, 255, 0.8) 1.5px, transparent 1.5px),
-                    radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px);
-  background-size: 40px 40px, 60px 60px, 80px 80px;
-  animation: snowFall 15s linear infinite;
-  opacity: 0.9;
-}
-
-@keyframes snowFall {
-  0% {
-    transform: translateY(-10%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-</style>
-
-
 
 
  <!--よくある質問 -->
@@ -373,50 +316,7 @@ animate();
     新しい一年が バグよりも笑いの多い日々になりますように<br>良いお年を<span class="inline-block ml-1">🎍</span>
   </p>
 </div>
-
-<style>
-.ai-column {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.ai-column:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-</style>
-
-
-<style>
-.ai-column {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.ai-column:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-</style>
-
-
-<style>
-/* ゆっくりと上下に揺れるアニメーション */
-@keyframes bounceSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-.animate-bounce-slow {
-  animation: bounceSlow 3s ease-in-out infinite;
-}
-
-/* カードをふわっと浮かせる演出 */
-.ai-column:hover {
-  transform: translateY(-4px);
-}
-.ai-column {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-</style>
-
-
-        
+  
 
 <!-- 来年の干支「丙午」とは？セクション -->
 <section id="about" class="py-16 bg-gradient-to-b from-[#fdf7ef] to-[#f8f3e9]">
@@ -467,85 +367,7 @@ animate();
   </div>
 </div>
 
-<style>
-/* --- カード全体和モダン調整 --- */
-.card-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  background: #fdf7ef;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  max-width: 350px;
-  padding: 1rem 1rem 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  object-fit: cover;
-}
-
-.card h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.story-link {
-  background: linear-gradient(90deg, #e0b75b, #d45b5b);
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: background 0.3s ease;
-}
-
-.story-link:hover {
-  background: linear-gradient(90deg, #d45b5b, #e0b75b);
-}
-
-/* --- セクション区切り線（可愛い＆おしゃれVer.） --- */
-.section-divider {
-  position: relative;
-}
-
-.divider-line {
-  width: 180px;
-  height: 2px;
-  border-top: 2px dotted #dcbf80;
-  position: relative;
-}
-
-.divider-line::before,
-.divider-line::after {
-  content: "✿";
-  position: absolute;
-  top: -10px;
-  font-size: 0.9rem;
-  color: #d6a35c;
-}
-
-.divider-line::before {
-  left: -20px;
-}
-
-.divider-line::after {
-  right: -20px;
-}
-</style>
-
-  </main>
+</main>
 
 <!-- Footer -->
 <footer class="site-footer"> <div class="inner"> 
@@ -553,58 +375,6 @@ animate();
 </div> 
 </footer>
 
-<style>
-/* --- 単独カード用スタイル --- */
-.card-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.card {
-  background: #f5f5f7; /* 淡いグレーで上品に */
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 350px;
-  padding: 1rem 1rem 1.5rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  object-fit: cover;
-}
-
-.card h3 {
-  font-size: 1rem;
-  color: #333;
-  margin: 0.5rem 0 1rem;
-}
-
-.card a {
-  display: inline-block;
-  background: #5a8d7c; /* 他の緑より落ち着いたトーン */
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: background 0.25s ease;
-}
-
-.card a:hover {
-  background: #4b7a6c;
-}
-
-</style>
-
 </body>
 </html>
+
