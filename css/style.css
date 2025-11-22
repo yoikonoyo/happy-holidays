@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+.newyear-title-bright {
+  font-family: "Yu Mincho", "Hiragino Maru Gothic ProN", serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 1.6;
+  text-align: center;
+  background: linear-gradient(90deg, #e0b75b, #d45b5b, #f5c8a0);
+  -webkit-background-clip: text; /*←警告1出てるけど標準ではない / 注意してねということで問題なし*/
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.06em;
+  margin: 2.5rem 0 0.5rem;
+  text-shadow: 0 2px 8px rgba(255, 237, 204, 0.4);
+  padding-top: 70px; /* ← 100px から少し詰めました */
+}
+
+
 /* 全体のリセット */
 * {
   box-sizing: border-box;
@@ -7,25 +23,35 @@
   padding: 0;
 }
 
+/* ======= ここから body 完全まとめ版 ======= */
 body {
-  font-family: "Quicksand", "Noto Sans JP", sans-serif;
+  /* 💛 フォント（最優先：必ず反映） */
+  font-family: "Quicksand", "Noto Sans JP", sans-serif !important;
   line-height: 1.7;
-  color: #3b3b3b;
-  background: #faf9f7;
-}
+  color: #3a4a3d;
 
-body {
-  border: 10px solid rgba(255, 235, 235, 0.6); /* やわらかいピンク系の光枠 */
+  
+  /* 💛 外枠デザイン（光のフレーム） */
+  border: 10px solid rgba(255, 235, 235, 0.6);
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(180, 100, 100, 0.1);
   background-color: #fffdfa;
-}
 
-body {
-  background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+  /* 💛 背景（冬の光 × 雪） */
+  background: linear-gradient(to bottom right, #fafafa, #f2f8f6);
+  background-image:
+    url('https://www.transparenttextures.com/patterns/snow.png'),
+    radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
   background-repeat: repeat;
   background-size: contain;
+  background-blend-mode: soft-light;
+
+  /* レイアウト基礎 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+/* ======= ここまで body 完全まとめ版 ======= */
 
 
 /* 全体のラップ */
@@ -125,15 +151,6 @@ body {
   border-radius: 4px;
 }
 
-/* メディアクエリ：スマホ */
-@media (max-width: 768px) {
-  .qr-link {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-
 
 /* メイン余白 */
 .top-page {
@@ -190,7 +207,7 @@ body {
   z-index: 1; /* 背景層 */
 }
 
-/* 🎁 アイコン */
+/*アイコン */
 .icon {
   position: absolute;
   width: 95px;
@@ -250,21 +267,47 @@ body {
 }
 
 /* アイコン位置（微調整） */
-.box1 { top: 90%; left: 30%; }
-.box2 { top: 92%; left: 60%; }
-.box3 { top: 90%; left: 40%; }
-.box4 { top: 90%; left: 19%; }
-.box5 { top: 79.5%; left: 73%; }
-.box6 { top: 63.9%; left: 66%; }
-.box7 { top: 57%; left: 13%; }
-.box8 { top: 90%; left: 3%; }
-.box9 { top: 91%; left: 72%; }
-.box10 { top: 40.5%; left: 64.5%; }
-.box11 { top: 15%; left: 80%; }
-.box12 { top: 45%; left: 29%; }
-.box13 { top: 14%; left: 5%; }
+.box1 { top: 60%; left: 24%; }
+.box2 { top: 86%; left: 63%; }
+.box3 { top: 86%; left: 50%; }
+.box4 { top: 86%; left: 23%; }
+.box5 { top: 74.5%; left: 74%; }
+.box6 { top: 60%; left: 66%; }
+.box7 { top: 84%; left: 39%; }
+.box8 { top: 86%; left: 7%; }
+.box9 { top: 86%; left: 77%; }
+.box10 { top: 41%; left: 67%; }
+.box11 { top: 14.5%; left: 80%; }
+.box12 { top: 40%; left: 11%; }
+.box13 { top: 7%; left: 5%; }
 .box14 { top: 25%; left: 52%; }
-.box15 { top: 51%; left: 23%; }
+.box15 { top: 32%; left: 20%; }
+
+
+/* --- Snow Animation (Pop & Visible) --- */
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(200, 220, 255, 0.9) 1px, transparent 1px),
+                    radial-gradient(rgba(220, 240, 255, 0.8) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  animation: snowFall 15s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
 
 
 /* FAQセクション */
@@ -277,6 +320,40 @@ body {
   border-radius: 20px;
   box-shadow: 0 6px 10px rgba(0,0,0,0.05);
 }
+
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ai-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ai-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ゆっくりと上下に揺れるアニメーション */
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
+
+/* カードをふわっと浮かせる演出 */
+.ai-column:hover {
+  transform: translateY(-4px);
+}
+.ai-column {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 /* ABOUTセクション */
 #about {
@@ -354,15 +431,6 @@ body {
    ❄️ 全体トーン統一：冬・ナチュラル・やさしさ
    ===================================== */
 
-/* ふんわり雪の光と背景の色味を調整 */
-body {
-  background: linear-gradient(to bottom right, #fafafa, #f2f8f6);
-  background-image:
-    url('https://www.transparenttextures.com/patterns/snow.png'),
-    radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
-  background-blend-mode: soft-light;
-  color: #3a4a3d;
-}
 
 /* 各セクションの背景を微妙に統一トーンへ寄せる */
 .tree-container,
@@ -401,6 +469,28 @@ h1, h2 {
   border: 4px solid #c7d8cc;
   box-shadow: 0 8px 16px rgba(120, 150, 120, 0.15);
 }
+
+.tree-message,
+.tree-message span {
+  font-family: 'Quicksand', sans-serif !important;
+  text-align: center;       /* 中央寄せ */
+  font-size: 1.0rem;
+  font-weight: 400;         /*フォントの太さ100～900で数字が大きいと太い*/
+  color: #d12b2b;           /* 明るい赤（黒から変更） */
+  margin: 8px 0 10px;
+  padding: 5px 0;
+  position: relative;
+  z-index: 5;             /* 上部の飾りより前に出す */
+}
+
+/* --- メッセージの切り替え設定 --- */
+.tree-message .pc-only {
+  display: inline;
+}
+.tree-message .sp-only {
+  display: none;
+}
+
 
 /* フッターも柔らかい色味に */
 .site-footer {
@@ -471,6 +561,12 @@ h1, h2 {
   animation: twinkle 3s ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.3s);
   transition: transform 0.2s;
+}
+
+/* アイコン3つのサイズを小さく */
+.small-icon {
+  width: 70px !important;
+  height: auto !important;
 }
 
 .icon:hover img {
@@ -562,14 +658,159 @@ h1, h2 {
   z-index: 0;
 }
 
+
 /* --- 固定ヘッダー分の余白補正 --- */
 section[id] {
   scroll-margin-top: 100px; /* ヘッダーの高さに合わせて調整 */
 }
 
 
-/* スマホ対応 */
+/* --- カード全体和モダン調整 --- */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: #fdf7ef;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 350px;
+  padding: 1rem 1rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+
+/* --- 単独カード用スタイル --- */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #f5f5f7; /* 淡いグレーで上品に */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 350px;
+  padding: 1rem 1rem 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0 1rem;
+}
+
+.card a {
+  display: inline-block;
+  background: #5a8d7c; /* 他の緑より落ち着いたトーン */
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.25s ease;
+}
+
+.card a:hover {
+  background: #4b7a6c;
+}
+
+.story-link {
+  background: linear-gradient(90deg, #e0b75b, #d45b5b);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.story-link:hover {
+  background: linear-gradient(90deg, #d45b5b, #e0b75b);
+}
+
+/* --- セクション区切り線（可愛い＆おしゃれVer.） --- */
+.section-divider {
+  position: relative;
+}
+
+.divider-line {
+  width: 180px;
+  height: 2px;
+  border-top: 2px dotted #dcbf80;
+  position: relative;
+}
+
+.divider-line::before,
+.divider-line::after {
+  content: "✿";
+  position: absolute;
+  top: -10px;
+  font-size: 0.9rem;
+  color: #d6a35c;
+}
+
+.divider-line::before {
+  left: -20px;
+}
+
+.divider-line::after {
+  right: -20px;
+}
+
+
+/*=====================================
+   ☆☆☆ スマホ対応 ☆☆☆
+===================================== */
+
+/* スマホ表示時の調整 */
 @media (max-width: 768px) {
+  .newyear-title-bright {
+    font-size: 2.2rem;
+    padding-top: 90px;   /* ← 120px → 90px に変更 */
+    margin-bottom: 0.3rem;
+  }
+
+  .qr-link {
+    width: 40px;
+    height: 40px;
+  }
+
+
   .site-header .inner {
     flex-direction: column;
   }
@@ -596,52 +837,68 @@ section[id] {
   #about h1 {
     font-size: 1.6rem;
   }  
-}
-/* =====================================
-   📱 スマホ（幅768px以下）用の位置調整
-   ===================================== */
-@media (max-width: 768px) {
+
   /* ツリーを少し小さく中央に */
   .tree-container {
     max-width: 95%;
     margin-top: 40px;
   }
   .newyear-title-bright {
-    padding-top: 120px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
+    padding-top: 80px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
    
     line-height: 1.2;   /* ← 行間も少し詰めてバランスよく */
   }
+  /* --- treeメッセージの切り替え設定 --- */
+   .tree-message {
+    display: block;
+    text-align: center;
+    font-size: 1.05rem;   /* 少し控えめ */
+    margin-top: 5px;      /* tree-img との距離を縮める */
+    padding: 5px 0;       /* メッセージ上下の余白 */
+    color: #e84a4a;
+  }
 
-  /* アイコン位置を調整（見栄え重視で再配置） */
-  .box1 { top: 90%; left: 20%; }
-  .box2 { top: 89%; left: 48%; }
-  .box3 { top: 90%; left: 33%; }
-  .box4 { top: 90%; left: 1%; }
-  .box5 { top: 77%; left: 70%; }
-  .box6 { top: 61%; left: 63%; }
-  
-  .box7 { top: 53%; left: 2%; }
-  .box8 { top: 89%; left: 79%; }
-  .box9 { top: 90%; left: 63%; }
-  .box10 { top: 32%; left: 70%; }
-  .box11 { top: 12%; left: 75%; }
-  .box12 { top: 43%; left: 23%; }
-  .box13 { top: 16%; left: 2%; }
-  .box14 { top: 24%; left: 50%; }
-  .box15 { top: 44%; left: 7%; }
+  /* PC/SP 切替 */
+  .tree-message .pc-only { display: none; }
+  .tree-message .sp-only { display: inline; }
+
+  /* スマホ時のツリーコンテナの余白調整 
+  .tree-container {
+    padding-top: 20px;    /* 上に余白を追加して重なり解消 
+  }*/
+
+
+  /* スマホのアイコン位置を調整 */
+.box1 { top: 56%; left: 22%; }
+.box2 { top: 84%; left: 50%; }
+.box3 { top: 84%; left: 64%; }
+.box4 { top: 84.5%; left: 17%; }
+.box5 { top: 71%; left: 71%; }
+.box6 { top: 56%; left: 64%; }
+.box7 { top: 81%; left: 37%; }
+.box8 { top: 84%; left: 2%; }
+.box9 { top: 84%; left: 78%; }
+.box10 { top: 36%; left: 67%; }
+.box11 { top: 11%; left: 78%; }
+.box12 { top: 23%; left: -1%; }
+.box13 { top: 42%; left: 12%; }
+.box14 { top: 23%; left: 52%; }
+.box15 { top: 9%; left: 7%; }
 
   /* アイコンを少し小さく */
   .icon {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
   }
+  .small-icon {
+  width: 60px !important;
+  height: auto !important;
+}
 
   /* タイトルも少し小さく */
   .top-page > h1 {
     font-size: 1.6rem;
   }
-}
-
 
 /* fortune.html用 */
 
@@ -685,11 +942,4 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
-
-
-
-
-
-
-
-
+}
