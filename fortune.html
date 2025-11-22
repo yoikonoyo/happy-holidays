@@ -78,11 +78,11 @@
     ];
 
     const messages = [
-      "星を読み解いています…🌠",
-      "あなたの心をスキャン中💫",
-      "運命のページをめくっています📖",
-      "少々お待ちください🎄"
-    ];
+  { text: "星を読み解いています…🌠", duration: 0 },
+  { text: "あなたの心をスキャン中💫", duration: 1000 },
+  { text: "運命のページをめくっています📖", duration: 1000 },
+  { text: "少々お待ちください🎄", duration: 2000 }
+];
 
     const resultsData = {
       leader:{title:"リーダータイプ",description:"自信と行動力にあふれ、周囲を自然に引っ張っていくあなた。責任感が強く、困っている人を放っておけません。また、人間関係を重視し、共感や支援を通じて周囲の人の能力を上手く引き出すことができる人です。",fortune:"そんなあなたの2026年は、「新しい形の信頼」を育てる年。責任を一人で抱え込まず、仲間と分かち合うことがカギになりそうです。ときどき「自分が頑張らなきゃ」と気を張りすぎて疲れる瞬間もあるけれど、誰かに頼ることも、立派なリーダーシップの一つ。困った時ほど「手を貸して」と言ってみてください。あなたが人を信じるほど、周りもあなたを信じて動き出します。",imageUrl:"images/leader.jpg"},
@@ -140,17 +140,28 @@
     }
 
     function startResultSequence(){
-      quizContentEl.classList.add('hidden');
-      progressSectionEl.classList.add('hidden');
-      loadingContainerEl.classList.remove('hidden');
-      let i=0;
-      const loadingText=loadingContainerEl.querySelector('p');
-      const interval=setInterval(()=>{loadingText.innerHTML=messages[i%messages.length]; i++;},1500);
-      setTimeout(()=>{
-        clearInterval(interval);
-        showResult();
-      },5000);
+  quizContentEl.classList.add('hidden');
+  progressSectionEl.classList.add('hidden');
+  loadingContainerEl.classList.remove('hidden');
+
+  const loadingText = loadingContainerEl.querySelector('p');
+  let i = 0;
+
+  function showNextMessage(){
+    if(i >= messages.length){
+      showResult(); // すべて表示後に結果表示
+      return;
     }
+    loadingText.innerText = messages[i].text;
+    const delay = messages[i].duration;
+    i++;
+    setTimeout(showNextMessage, delay);
+  }
+
+  // 最初のメッセージから開始
+  showNextMessage();
+}
+
 
     function showResult(){
   // 最大スコアを取得
@@ -184,4 +195,5 @@
 
 </body>
 </html>
+
 
