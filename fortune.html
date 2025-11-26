@@ -10,6 +10,18 @@
     .answer-btn.disabled { pointer-events: none; opacity: 0.6; }
     .answer-btn.selected { background-color: #fbbf24; color: #1f2937; }
     #progress-bar { height: 10px; background-color: #fbbf24; width: 0%; transition: width 0.3s; }
+
+   /* ★★★ここから追加★★★ */
+    .instruction-text {
+      display: block; /* 改行して表示 */
+      font-size: 0.8em; /* 質問文より小さい文字サイズ */
+      font-style: italic; /* 斜体 */
+      font-weight: normal; /* 太字を解除 */
+      color: #6b7280; /* やや薄い灰色 */
+      margin-top: 10px;
+    }
+    /*★★★ここまで追加★★★ */
+
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col items-center p-4">
@@ -56,23 +68,33 @@
   document.addEventListener('DOMContentLoaded', () => {
 
     const quizData = [
-      { question: "友人がふさぎ込んでいます。見て見ぬふりナシなら、あなたはどっちのタイプ？", answers: [
+      { question: "友人がふさぎ込んでいます。見て見ぬふりナシなら、あなたはどっちのタイプ？", 
+       instruction: "次の2つのうち、当てはまる方をクリック！", // 👈 追加
+       answers: [
           { text: "「どうしたの？ 悩みあったら聴くよ」と聞き役・共感モードになる。", type: "empathy" },
           { text: "「何ができる？ 一緒に解決策を探そう」とレスキュー魂が騒ぐ。", type: "leader" }
         ]},
-      { question: "デカい壁（物理的な壁じゃないよ）にぶち当たった！ 　さて、あなたはどうする？", answers: [
+      { question: "デカい壁（物理的な壁じゃないよ）にぶち当たった！ 　さて、あなたはどうする？", 
+      instruction: "次の2つのうち、当てはまる方をクリック！", // 👈 追加
+       answers: [
           { text: "まずは立ち止まって分析。冷静にじっくり作戦を練る。", type: "analysis" },
           { text: "考えるよりとりあえず行動！動きながら考える。", type: "adventure" }
         ]},
-      { question: "「疲れた〜」ってなった時、どうやってリセットする？", answers: [
+      { question: "「疲れた〜」ってなった時、どうやってリセットする？", 
+       instruction: "次の2つのうち、当てはまる方をクリック！", // 👈 追加
+       answers: [
           { text: "静かな場所で「無」になる時間を過ごす。", type: "relax" },
           { text: "好きなもの食べて、幸せな気持ちにどっぷり浸る。", type: "healing" }
         ]},
-      { question: "仕事や趣味で夢中になるのはどんな時？", answers: [
+      { question: "仕事や趣味で夢中になるのはどんな時？", 
+       instruction: "次の2つのうち、当てはまる方をクリック！", // 👈 追加
+       answers: [
           { text: "細部にまでこだわって、一人で完璧を目指すとき。", type: "artisan" },
           { text: "仲間と協力して、ワイワイ楽しく進めているとき。", type: "optimism" }
         ]},
-      { question: "予定が変わった時、気持ちをどう切り替える？", answers: [
+      { question: "予定が変わった時、気持ちをどう切り替える？", 
+       instruction: "次の2つのうち、当てはまる方をクリック！", // 👈 追加
+       answers: [
           { text: "予想外のことに「楽しいかも！」って、ワクワクするタイプなので問題なし。", type: "freedom" },
           { text: "ちょっと不安。次のステップを慎重に考える。", type: "cautious" }
         ]}
@@ -114,7 +136,15 @@
       if(currentQuestionIndex<quizData.length){
         updateProgress();
         const current = quizData[currentQuestionIndex];
-        questionEl.innerText = current.question;
+
+        // --- 修正箇所：ここから ---
+        // 質問文の表示
+        questionEl.innerHTML = `
+            ${current.question}
+            <span class="instruction-text">${current.instruction}</span>
+        `;
+        // --- 修正箇所：ここまで ---
+
         answersEl.innerHTML = '';
         current.answers.forEach(ans=>{
           const btn = document.createElement('button');
