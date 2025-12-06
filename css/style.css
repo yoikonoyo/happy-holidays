@@ -1,21 +1,5 @@
 @charset "UTF-8";
 
-.newyear-title-bright {
-  font-family: "Yu Mincho", "Hiragino Maru Gothic ProN", serif;
-  font-weight: 600;
-  font-size: 2.6rem;
-  line-height: 1.6;
-  text-align: center;
-  background: linear-gradient(90deg, #e0b75b, #d45b5b, #f5c8a0);
-  -webkit-background-clip: text; /*←警告1出てるけど標準ではない / 注意してねということで問題なし*/
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 0.06em;
-  margin: 2.5rem 0 0.5rem;
-  text-shadow: 0 2px 8px rgba(255, 237, 204, 0.4);
-  padding-top: 70px; /* ← 100px から少し詰めました */
-}
-
-
 /* 全体のリセット */
 * {
   box-sizing: border-box;
@@ -28,20 +12,20 @@ body {
   /* 💛 フォント（最優先：必ず反映） */
   font-family: "Quicksand", "Noto Sans JP", sans-serif !important;
   line-height: 1.7;
-  color: #3a4a3d;
-
+  color: #3a4a3d; 
+  
   
   /* 💛 外枠デザイン（光のフレーム） */
   border: 10px solid rgba(255, 235, 235, 0.6);
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(180, 100, 100, 0.1);
-  background-color: #fffdfa;
+  background-color: #fffdfa; 
 
   /* 💛 背景（冬の光 × 雪） */
   background: linear-gradient(to bottom right, #fafafa, #f2f8f6);
   background-image:
     url('https://www.transparenttextures.com/patterns/snow.png'),
-    radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
+    radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
   background-repeat: repeat;
   background-size: contain;
   background-blend-mode: soft-light;
@@ -158,6 +142,54 @@ body {
 }
 
 /* クリスマスツリーセクション */
+
+/* あいさつ文をネオン風にする */
+.newyear-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0 5px;
+  padding: 10px 0;
+   /* color: #9aec93;  ← 白から、淡いピンクに変更 */
+}
+  
+/* ネオン（光る）効果 - 案B: 色が滑らかに変化する */
+.newyear-title-neon {
+  /* 文字色はアニメーションで制御するため、基本は明るい色に */
+  color: #FF5252; 
+  font-weight: 700;
+  text-shadow: none; /* ぼやけは完全に除去 */
+  
+  /* 新しいアニメーションを適用 */
+  animation: colorShift 5s ease-in-out infinite alternate; 
+}
+
+/* @keyframes colorShift: お祝いカラーで滑らかに変化 */
+@keyframes colorShift {
+  0% {
+    color: #FF5252; /* 祝いの赤 */
+  }
+  33% {
+    color: #FFD700; /* 豪華な金 */
+  }
+  66% {
+    color: #2E8B57; /* 縁起の良い緑 */
+  }
+  100% {
+    color: #FF5252; /* 赤に戻る */
+  }
+}
+
+
+/* color, text-shadow, animation はネオン効果を適用するため削除しました */
+.top-page > h1 {
+  text-align: center;
+  font-size: 2.2rem; /* 2remと2.2remで大きい方を採用 */
+  margin-bottom: 1rem;
+  font-family: "Quicksand", cursive;
+  /* color: #b22222; や animation: wiggle; は削除 */
+}
+
+
 /* 🎄 ツリー全体 */
 .tree-container {
   position: relative;
@@ -169,7 +201,7 @@ body {
   background: #ffffff;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   overflow: hidden;
-  margin-top: 60px;
+  margin-top: -10px;/* ← 60px →-10px に変更でギュッと詰まる */
 }
 
 /* ツリー画像（背景） */
@@ -222,14 +254,6 @@ body {
 }
 
 
-/* 見出し（Merry Christmas...） */
-.top-page > h1 {
-  text-align: center;
-  font-size: 2rem;
-  color: #b22222;
-  margin-bottom: 1rem;
-  font-family: "Quicksand", cursive;
-}
 
 /* 各アイコン画像 */
 .tree-container .icon img {
@@ -588,17 +612,6 @@ h1, h2 {
   100% { opacity: 0; transform: translateY(-15px) scale(1.4); }
 }
 
-/* --- 3. タイトルを少しポップに --- */
-.top-page > h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  color: #d40000;
-  margin-bottom: 1rem;
-  font-family: "Quicksand", cursive;
-  text-shadow: 2px 2px 6px rgba(255, 220, 220, 0.8);
-  animation: wiggle 4s ease-in-out infinite;
-}
-
 
 /* --- 4. ゆっくり降る雪 --- */
 .tree-container {
@@ -799,10 +812,14 @@ section[id] {
 
 /* スマホ表示時の調整 */
 @media (max-width: 768px) {
-  .newyear-title-bright {
-    font-size: 2.2rem;
-    padding-top: 90px;   /* ← 120px → 90px に変更 */
-    margin-bottom: 0.3rem;
+  /* ① ヘッダーと重ならないように余白をしっかり確保 */
+  .top-page {
+    margin-top: 150px !important; 
+  }
+
+  /* タイトルも少し小さく */
+  .top-page > h1 {
+    font-size: 1.6rem;
   }
 
   .qr-link {
@@ -810,15 +827,47 @@ section[id] {
     height: 40px;
   }
 
-
   .site-header .inner {
     flex-direction: column;
   }
+
+  /* 挨拶文のフォント調整 */
+  /* ③ 英文：行間・余白を詰める */
+  .eng {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-bottom: 0.2rem; /* ← 英文と日本文を詰める */
+  }
+
+  /* ④ 日本文：英文との間を少しだけ取る、下は詰める */
+  .jp {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.4rem;  /* ← ツリーとの間を詰める */
+  }
   
-/*  .hero {
-  padding-bottom: 100px;  hero下にスペースを確保 
-}*/
-  .global-nav ul {
+    /* ② 挨拶文：全体の余白と行間をリセットして詰める */
+  .newyear-title {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.25 !important;
+    padding: 0;
+  }
+
+  /* 英文だけさらに少し小さくしたい場合 */
+  .newyear-title br:first-of-type::after {
+    content: ""; /* CSSだけでは英文だけ指定しにくいので別案も後述 */
+  }
+
+  .newyear-title-bright {
+   font-size: 2.2rem;
+   padding-top: 80px;   /* ← 120px → 90px に変更 */
+   margin-bottom: 0.3rem;
+   line-height: 1.2;   /* ← 行間も少し詰めてバランスよく */
+  }
+
+   .global-nav ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -827,27 +876,16 @@ section[id] {
   }
   .tree-container {
     max-width: 100%;
+    margin-top: 10px !important; /* ⑤ ツリーの位置も詰める */
+    max-width: 95%;
+    margin-top: 40px;
   }
-
+ 
   #snowCanvas {
   top: -100px;   /* 上方向に余裕 */
   bottom: -100px; /* 下方向に余裕 */
 }
 
-  #about h1 {
-    font-size: 1.6rem;
-  }  
-
-  /* ツリーを少し小さく中央に */
-  .tree-container {
-    max-width: 95%;
-    margin-top: 40px;
-  }
-  .newyear-title-bright {
-    padding-top: 80px; /* ← ヘッダーが縦長になる分の余白。必要に応じて調整OK */
-   
-    line-height: 1.2;   /* ← 行間も少し詰めてバランスよく */
-  }
   /* --- treeメッセージの切り替え設定 --- */
    .tree-message {
     display: block;
@@ -894,12 +932,7 @@ section[id] {
   width: 60px !important;
   height: auto !important;
 }
-
-  /* タイトルも少し小さく */
-  .top-page > h1 {
-    font-size: 1.6rem;
-  }
-
+  
 /* fortune.html用 */
 
 /* 非表示クラス */
@@ -942,5 +975,59 @@ section[id] {
   max-width: 600px;
   margin: 2rem auto;
 }
+
+#fortune h2{
+ font-size: 1.6rem; 
 }
 
+#faq h2{
+ font-size: 1.5rem; 
+}
+
+#faq p{
+ font-size: 1.0rem; 
+}
+
+#about h1 {
+    font-size: 1.6rem;
+  }  
+
+  /* すべての大見出し */
+  /* 新年タイトル */
+  h1.newyear-title {
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* ツリー */
+  .tree-container {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* AI占い（paddingをやや縮小） */
+  #fortune {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* 干支セクション */
+  #about {
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* 区切り線 */
+  .section-divider {
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* ショートストーリー */
+  .card-wrapper {
+    margin-top: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
