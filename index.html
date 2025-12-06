@@ -3,7 +3,7 @@
 <head> 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>年末のご挨拶</title>
+  <title>師走のご挨拶</title>
 
   <!-- Tailwind & Alpine -->
   <script src="https://cdn.tailwindcss.com"></script> 
@@ -48,8 +48,9 @@
   <main class="top-page">
 
 <!-- クリスマスツリー/セクション -->
-<h1 class="newyear-title-bright">
-  ありがとうございました<br>よいお年をお迎えください
+<h1 class="newyear-title newyear-title-neon">
+   <span class="eng">Your smile quietly upgrades the day</span><br>
+   <span class="jp">よいお年をお迎えください</span>
 </h1>
 
 <div class="tree-container">
@@ -57,9 +58,9 @@
   <img src="images/tree.jpg" alt="tree">
 
   <p class="tree-message">
-  <span class="pc-only">カーソルを動く飾りに合わせてみて！</span>
+  <span class="pc-only">🌼カーソルを動く飾りに合わせてみて🌼</span>
   
-  <span class="sp-only">動く飾りをタップしてみて！</span>
+  <span class="sp-only">🌼動く飾りをタップしてみて🌼</span>
 </p>
 
   <!-- 箱イラスト1 -->
@@ -159,7 +160,7 @@
 <!-- AI Fortune Teller Section（和モダン版） -->
 <section id="fortune" class="text-center my-20 py-16 px-4 bg-[#f8f6f2] border-t border-b border-[#bfa36a]/40">
   <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#a3423c]" style="font-family: 'Yu Mincho', serif;">
-    🔮 AIが占うあなたの性格と来年の運勢
+    🔮 AIが占う<br>あなたの性格と来年の運勢
   </h2>
     <p class="text-[#2b2b2b] italic mb-8 leading-relaxed" style="font-family: 'Hiragino Kaku Gothic ProN', sans-serif;">
       １０パターンの性格からあなたに最も近いものを選び来年の運勢を占います。<br>❄当たるもＡＩ❄ 当たらぬもＡＩ❄<br>お気軽にお楽しみください。<br>
@@ -242,66 +243,83 @@ animate();
 
 
  <!--よくある質問 -->
-   <section id="faq" class="max-w-3xl mx-auto">
-  <div class="text-center mb-16">
-    <h2 class="text-3xl md:text-4xl font-bold mb-2">AIが答える年末年始よくある質問</h2>
-    <!-- &#11088; が ⭐（U+2B50）に対応 -->
+  <section id="faq" class="max-w-3xl mx-auto">
+  <div class="text-center mb-10 md:mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-2">AIが答える<br>年末年始よくある質問</h2>
     <p class="text-gray-700 italic text-lg md:text-xl font-medium leading-snug">
-  &#11088; 年末年始は人もAIもアップデートにいい時期です &#11088;
-</p>
+      &#11088; 年末年始は人もAIもupdateに最適 &#11088;
+    </p>
   </div>
-            <div class="space-y-4">
-                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
-                        <span>大掃除って、いつから始めればいいんですか？</span>
-                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
-                        <p>「やる気が出た時」です。大掃除は本来、年神さまを迎えるための準備ですが、そのやる気はお茶を淹れて休憩するあたりで消えてしまいがち。<br>
-                        日本の約6割の家庭が大掃除を終えられず年を越すという統計があります。つまり、新年は（たぶん年神さまも…）、ほこりがあってもちゃんとやってきます。
-                     </p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
-                        <span> こたつから出られないのですが、どうしたらいいですか？</span>
-                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
-                        <p>AIによる観測では、こたつから自力で出られる確率は、１月上旬で約12％、下旬では3％まで低下します。こたつは暖房器具でありながら、人間の意思を溶かす魔力を持っています。無理に出ようとせず、まずはリモコン・お茶・みかんを手の届く範囲にそろえましょう。 それが冬を安全に過ごすための、こたつ三種の神器です
-                        </p>
-                    </div>
-                </div>
-                 <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
-                        <span>お年玉の相場、上がりすぎてませんか？ </span>
-                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
-                        <p>その通りです。昭和の子どもは500円で大喜びしていたのに、令和では“千円だと少し沈黙が走る”という現象が確認されています。でも不思議なもので、包む側の気持ちはどの時代も同じ。<br>「これで喜んでくれたらいいなぁ～」と思うその気持ちこそが、いちばん“福”を呼ぶお年玉です…と思いたいですね。</p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
-                        <span>初詣は、いつ行けばご利益がありますか？</span>
-                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
-                        <p>元日は混みますが、神さまには人間と違い“オーバーワーク”の概念はありません。三が日でも、松の内でも、旧正月でもOKです。要は「行こう」と思った時がベストタイミング。<br>ちなみにAIの統計では、夜明け前に参拝した人の7割が、帰宅後に二度寝しています。ご利益は、たぶんそのぬくもりの中にもあります。</p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
-                        <span>新年の抱負、毎年3日で忘れるんですが？ </span>
-                        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
-                        <p> ご安心ください。人間の「新年の決意」の平均持続日数は、約2.7日です。つまり、あなたは平均より優秀です。大切なのは、何度でも立て直せること。<br> “3日坊主”とは、“4日目にまた始められる人”の別名なのです。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+  <div class="space-y-2 md:space-y-4">
+
+    <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+        <span class="text-base md:text-lg">大掃除って、いつから始めればいいんですか？</span>
+        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+        <p>「やる気が出た時」です。大掃除は本来、年神さまを迎えるための準備ですが、そのやる気はお茶を淹れて休憩するあたりで消えてしまいがち。<br>
+        日本の約6割の家庭が大掃除を終えられず年を越すという統計があります。つまり、新年は（たぶん年神さまも…）、ほこりがあってもちゃんとやってきます。
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+        <span class="text-base md:text-lg">こたつから出られないのですが、どうしたらいいですか？</span>
+        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+        <p>AIによる観測では、こたつから自力で出られる確率は、１月上旬で約12％、下旬では3％まで低下します。こたつは暖房器具でありながら、人間の意思を溶かす魔力を持っています。無理に出ようとせず、まずはリモコン・お茶・みかんを手の届く範囲にそろえましょう。 それが冬を安全に過ごすための、こたつ三種の神器です
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+        <span class="text-base md:text-lg">お年玉の相場、上がりすぎてませんか？</span>
+        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+        <p>その通りです。昭和の子どもは500円で大喜びしていたのに、令和では“千円だと少し沈黙が走る”という現象が確認されています。でも不思議なもので、包む側の気持ちはどの時代も同じ。<br>「これで喜んでくれたらいいなぁ～」と思うその気持ちこそが、いちばん“福”を呼ぶお年玉です…と思いたいですね。</p>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+        <span class="text-base md:text-lg">初詣は、いつ行けばご利益がありますか？</span>
+        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+        <p>元日は混みますが、神さまには人間と違い“オーバーワーク”の概念はありません。三が日でも、松の内でも、旧正月でもOKです。要は「行こう」と思った時がベストタイミング。<br>ちなみにAIの統計では、夜明け前に参拝した人の7割が、帰宅後に二度寝しています。ご利益は、たぶんそのぬくもりの中にもあります。</p>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 rounded-lg" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex justify-between items-center text-left text-lg font-semibold p-6">
+        <span class="text-base md:text-lg">新年の抱負、毎年3日で忘れるんですが？</span>
+        <svg class="w-6 h-6 transition-transform" :class="{ 'transform rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition class="p-6 pt-0 text-gray-700 text-base md:text-lg leading-relaxed">
+        <p>ご安心ください。人間の「新年の決意」の平均持続日数は、約2.7日です。つまり、あなたは平均より優秀です。大切なのは、何度でも立て直せること。<br>“3日坊主”とは、“4日目にまた始められる人”の別名なのです。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- AIのひとことコラム -->
 <div class="ai-column bg-gradient-to-br from-amber-50 via-yellow-50 to-rose-50 rounded-2xl p-8 mt-16 mx-auto max-w-2xl text-center shadow-lg border border-amber-200 relative overflow-hidden">
@@ -319,7 +337,7 @@ animate();
   
 
 <!-- 来年の干支「丙午」とは？セクション -->
-<section id="about" class="py-16 bg-gradient-to-b from-[#fdf7ef] to-[#f8f3e9]">
+<section id="about" class="py-12 md:py-16 bg-gradient-to-b from-[#fdf7ef] to-[#f8f3e9]">
   <div class="wrapper max-w-5xl mx-auto px-6">
     
     <h2 class="text-3xl md:text-4xl font-serif tracking-wide text-[#a7312c] border-b-2 border-[#c0a050] inline-block pb-2 mb-10">
@@ -348,7 +366,7 @@ animate();
 </section>
 
 <!-- セクション区切り線 -->
-<div class="section-divider my-20 text-center">
+<div class="section-divider my-10 md:my-20 text-center">
   <div class="divider-line mx-auto mb-3"></div>
   <p class="text-sm text-gray-500 italic">（お暇な方はこちらもどうぞ）</p>
 </div>
@@ -359,7 +377,7 @@ animate();
     <img src="images/water-trace.jpg" alt="水の跡" class="rounded-lg mb-4">
     <h3 class="text-lg font-semibold mb-2">自作ショートストーリー (所要時間約10分)</h3>
     <p class="text-gray-700 text-sm mb-4">
-      ―SF短編小説のスピンオフ―<br>中学生向けLoveストーリー
+      ―SF短編小説のスピンオフ―<br>中学生向け<br>なんとなくLoveストーリー
     </p>
     <a href="https://yoikonoyo.github.io/short-story/" target="_blank" class="story-link inline-block">
       〚水の跡〛を読む
