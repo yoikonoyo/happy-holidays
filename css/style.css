@@ -25,7 +25,7 @@ body {
   background: linear-gradient(to bottom right, #fafafa, #f2f8f6);
   background-image:
     url('https://www.transparenttextures.com/patterns/snow.png'),
-    radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
+ radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(235,245,240,0.9));
   background-repeat: repeat;
   background-size: contain;
   background-blend-mode: soft-light;
@@ -239,6 +239,52 @@ body {
   z-index: 1; /* 背景層 */
 }
 
+/* アイコンの枠や影にも統一感を */
+.tree-container {
+  border: 4px solid #c7d8cc;
+  box-shadow: 0 8px 16px rgba(120, 150, 120, 0.15);
+}
+
+.tree-message,
+.tree-message span {
+  font-family: 'Quicksand', sans-serif !important;
+  text-align: center;       /* 中央寄せ */
+  font-size: 1.0rem;
+  font-weight: 400;         /*フォントの太さ100～900で数字が大きいと太い*/
+  color: #d12b2b;           /* 明るい赤（黒から変更） */
+  margin: 8px 0 10px;
+  padding: 5px 0;
+  position: relative;
+  z-index: 5;             /* 上部の飾りより前に出す */
+}
+
+/* --- メッセージの切り替え設定 --- */
+.tree-message .pc-only {
+  display: inline;
+}
+.tree-message .sp-only {
+  display: none;
+}
+
+/* PCアイコン位置 */
+.box1 { top: 13.5%; left: 6%; }
+.box2 { top: 86%; left: 63%; }
+.box3 { top: 86%; left: 50%; }
+.box4 { top: 86%; left: 24%; }
+.box5 { top: 74.5%; left: 74%; }
+.box6 { top: 59.5%; left: 66%; }
+.box7 { top: 87%; left: 8%; }
+.box8 { top: 86%; left: 77%; }
+.box9 { top: 86%; left: 39%; }
+.box10 { top: 60%; left: 25%; }
+.box11 { top: 13%; left: 80%; }
+.box12 { top: 40%; left: 11%; }
+.box13 { top: 43.5%; left: 61%; }
+.box14 { top: 22%; left: 52%; }
+.box15 { top: 32%; left: 20%; }
+
+
+
 /*アイコン */
 .icon {
   position: absolute;
@@ -252,7 +298,6 @@ body {
 .icon:hover {
   transform: scale(1.15);
 }
-
 
 
 /* 各アイコン画像 */
@@ -277,6 +322,7 @@ body {
   font-size: 0.8rem;
   opacity: 0;
   transition: opacity 0.3s;
+  
 
    /* ← ここから改善ポイント ↓ */
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);  /* 文字を少し浮かせる */
@@ -289,24 +335,7 @@ body {
   visibility: visible;
   opacity: 1;
 }
-
-/* アイコン位置（微調整） */
-.box1 { top: 60%; left: 24%; }
-.box2 { top: 86%; left: 63%; }
-.box3 { top: 86%; left: 50%; }
-.box4 { top: 86%; left: 23%; }
-.box5 { top: 74.5%; left: 74%; }
-.box6 { top: 60%; left: 66%; }
-.box7 { top: 84%; left: 39%; }
-.box8 { top: 86%; left: 7%; }
-.box9 { top: 86%; left: 77%; }
-.box10 { top: 41%; left: 67%; }
-.box11 { top: 14.5%; left: 80%; }
-.box12 { top: 40%; left: 11%; }
-.box13 { top: 7%; left: 5%; }
-.box14 { top: 25%; left: 52%; }
-.box15 { top: 32%; left: 20%; }
-
+/* アイコン位置をここから↑に移動 */
 
 /* --- Snow Animation (Pop & Visible) --- */
 .snow {
@@ -488,33 +517,7 @@ h1, h2 {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* アイコンの枠や影にも統一感を */
-.tree-container {
-  border: 4px solid #c7d8cc;
-  box-shadow: 0 8px 16px rgba(120, 150, 120, 0.15);
-}
-
-.tree-message,
-.tree-message span {
-  font-family: 'Quicksand', sans-serif !important;
-  text-align: center;       /* 中央寄せ */
-  font-size: 1.0rem;
-  font-weight: 400;         /*フォントの太さ100～900で数字が大きいと太い*/
-  color: #d12b2b;           /* 明るい赤（黒から変更） */
-  margin: 8px 0 10px;
-  padding: 5px 0;
-  position: relative;
-  z-index: 5;             /* 上部の飾りより前に出す */
-}
-
-/* --- メッセージの切り替え設定 --- */
-.tree-message .pc-only {
-  display: inline;
-}
-.tree-message .sp-only {
-  display: none;
-}
-
+/* ここから↑に移動 */
 
 /* フッターも柔らかい色味に */
 .site-footer {
@@ -900,29 +903,7 @@ section[id] {
   .tree-message .pc-only { display: none; }
   .tree-message .sp-only { display: inline; }
 
-  /* スマホ時のツリーコンテナの余白調整 
-  .tree-container {
-    padding-top: 20px;    /* 上に余白を追加して重なり解消 
-  }*/
-
-
-  /* スマホのアイコン位置を調整 */
-.box1 { top: 56%; left: 22%; }
-.box2 { top: 84%; left: 50%; }
-.box3 { top: 84%; left: 64%; }
-.box4 { top: 84.5%; left: 17%; }
-.box5 { top: 71%; left: 71%; }
-.box6 { top: 56%; left: 64%; }
-.box7 { top: 81%; left: 37%; }
-.box8 { top: 84%; left: 2%; }
-.box9 { top: 84%; left: 78%; }
-.box10 { top: 36%; left: 67%; }
-.box11 { top: 11%; left: 78%; }
-.box12 { top: 23%; left: -1%; }
-.box13 { top: 40%; left: 9%; }
-.box14 { top: 23%; left: 52%; }
-.box15 { top: 9%; left: 7%; }
-
+  
   /* アイコンを少し小さく */
   .icon {
     width: 85px;
@@ -1030,4 +1011,24 @@ section[id] {
     margin-top: 1.5rem !important;
     margin-bottom: 2rem !important;
   }
+}
+
+/* ======== 🎀 スマホ専用のアイコン補正（最優先で適用） ======== */
+@media (max-width: 768px) and (orientation: portrait) {
+
+  .box1 { top: 10.5%; left: 2%; }
+  .box2 { top: 82%; left: 57%; }
+  .box3 { top: 82%; left: 40%; }
+  .box4 { top: 82%; left: 11%; }
+  .box5 { top: 69%; left: 71%; }
+  .box6 { top: 54%; left: 64%; }
+  .box7 { top: 84%; left: -1%; }
+  .box8 { top: 82%; left: 76%; }
+  .box9 { top: 82%; left: 28%; }
+  .box10 { top: 55%; left: 22%; }
+  .box11 { top: 9%; left: 77%; }
+  .box12 { top: 42%; left: 0%; }
+  .box13 { top: 39%; left: 60%; }
+  .box14 { top: 20%; left: 50%; }
+  .box15 { top: 31%; left: 13%; }
 }
