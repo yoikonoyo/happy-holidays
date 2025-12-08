@@ -590,12 +590,6 @@ h1, h2 {
   transition: transform 0.2s;
 }
 
-/* ★★★アイコン3つのサイズを小さく */
-.small-icon {
-  width: 70px !important;
-  height: auto !important;
-}
-
 .icon:hover img {
   transform: scale(1.2);
 }
@@ -1011,6 +1005,11 @@ section[id] {
     margin-top: 1.5rem !important;
     margin-bottom: 2rem !important;
   }
+  /* ★★★アイコン2つのサイズを小さく */
+.small-icon {
+  width: 70px !important;
+  height: auto !important;
+}
 }
 
 /* ======== 🎀 スマホ専用のアイコン補正（最優先で適用） ======== */
@@ -1032,6 +1031,7 @@ section[id] {
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
+
 
 
 
