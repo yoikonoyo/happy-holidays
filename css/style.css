@@ -272,11 +272,11 @@ body {
 .box3 { top: 86%; left: 50%; }
 .box4 { top: 86%; left: 24%; }
 .box5 { top: 74.5%; left: 74%; }
-.box6 { top: 59.5%; left: 66%; }
+.box6 { top: 59.5%; left: 67%; }
 .box7 { top: 87%; left: 8%; }
 .box8 { top: 86%; left: 77%; }
 .box9 { top: 86%; left: 39%; }
-.box10 { top: 60%; left: 25%; }
+.box10 { top: 58%; left: 23%; }
 .box11 { top: 13%; left: 80%; }
 .box12 { top: 40%; left: 11%; }
 .box13 { top: 43.5%; left: 61%; }
@@ -1032,3 +1032,4 @@ section[id] {
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
+
