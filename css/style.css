@@ -590,11 +590,11 @@ h1, h2 {
   transition: transform 0.2s;
 }
 
-/* アイコン3つのサイズを小さく */
+/* アイコン3つのサイズを小さく 
 .small-icon {
   width: 70px !important;
   height: auto !important;
-}
+}*/
 
 .icon:hover img {
   transform: scale(1.2);
@@ -1032,6 +1032,7 @@ section[id] {
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
+
 
 
 
