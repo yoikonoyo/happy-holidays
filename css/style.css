@@ -276,7 +276,7 @@ body {
 .box7 { top: 87%; left: 8%; }
 .box8 { top: 86%; left: 77%; }
 .box9 { top: 86%; left: 39%; }
-.box10 { top: 60%; left: 24%; }
+.box10 { top: 58%; left: 23%; }
 .box11 { top: 13%; left: 80%; }
 .box12 { top: 40%; left: 11%; }
 .box13 { top: 43.5%; left: 61%; }
@@ -1032,5 +1032,6 @@ section[id] {
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
+
 
 
