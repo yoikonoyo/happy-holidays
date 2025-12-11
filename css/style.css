@@ -267,21 +267,117 @@ body {
 }
 
 /* PCアイコン位置 */
-.box1 { top: 13.5%; left: 6%; }
-.box2 { top: 86%; left: 63%; }
-.box3 { top: 86%; left: 50%; }
-.box4 { top: 86%; left: 24%; }
-.box5 { top: 74.5%; left: 74%; }
-.box6 { top: 59.5%; left: 67%; }
-.box7 { top: 86%; left: 8%; }
-.box8 { top: 86%; left: 77%; }
-.box9 { top: 86%; left: 39%; }
-.box10 { top: 58%; left: 23%; }
-.box11 { top: 13%; left: 80%; }
-.box12 { top: 40%; left: 11%; }
-.box13 { top: 42%; left: 60%; }
-.box14 { top: 22%; left: 52%; }
-.box15 { top: 32%; left: 20%; }
+/* 共通：アイコンを中心基準にする */
+.icon {
+  position: absolute;
+  transform-origin: center center;
+}
+
+/* box1 */
+.box1 {
+  top: 13.5%;
+  left: 6%;
+  transform: translate(-176px, -187px);
+}
+
+/* box2 */
+.box2 {
+  top: 86%;
+  left: 63%;
+  transform: translate(-243px, -187px);
+}
+
+/* box3 */
+.box3 {
+  top: 86%;
+  left: 50%;
+  transform: translate(-213px, -187px);
+}
+
+/* box4 */
+.box4 {
+  top: 86%;
+  left: 24%;
+  transform: translate(-215px, -187px);
+}
+
+/* box5 */
+.box5 {
+  top: 74%;
+  left: 74%;
+  transform: translate(-185px, -187px);
+}
+
+/* box6 */
+.box6 {
+  top: 59%;
+  left: 67%;
+  transform: translate(-153px, -187px);
+}
+
+/* box7 */
+.box7 {
+  top: 87%;
+  left: 8%;
+  transform: translate(-225px, -187px);
+}
+
+/* box8 */
+.box8 {
+  top: 86%;
+  left: 77%;
+  transform: translate(-209px, -187px);
+}
+
+/* box9 */
+.box9 {
+  top: 86%;
+  left: 39%;
+  transform: translate(-249px, -187px);
+}
+
+/* box10 */
+.box10 {
+  top: 58%;
+  left: 24%;
+  transform: translate(-178px, -187px);
+
+}
+
+/* box11 */
+.box11 {
+  top: 13%;
+  left: 80%;
+  transform: translate(-136px, -187px);
+}
+
+/* box12（star1） */
+.box12 {
+  top: 40%;
+  left: 11%;
+  transform: translate(-195px, -187px);
+}
+
+/* box13（cat） */
+.box13 {
+  top: 41.5%;
+  left: 60%;
+  transform: translate(-165px, -187px);
+}
+
+/* box14（star3） */
+.box14 {
+  top: 22%;
+  left: 52%;
+  transform: translate(-193px, -187px);
+}
+
+/* box15（star4） */
+.box15 {
+  top: 32%;
+  left: 20%;
+  transform: translate(-193px, -187px);
+}
 
 
 
@@ -906,7 +1002,7 @@ section[id] {
   .small-icon {
   width: 60px !important;
   height: auto !important;
-}
+  }
   
 /* fortune.html用 */
 
@@ -1005,15 +1101,10 @@ section[id] {
     margin-top: 1.5rem !important;
     margin-bottom: 2rem !important;
   }
-  /* ★★★アイコン2つのサイズを小さく */
-.small-icon {
-  width: 70px !important;
-  height: auto !important;
-}
 }
 
-/* ======== 🎀 スマホ専用のアイコン補正（最優先で適用） ======== */
-@media (max-width: 768px) and (orientation: portrait) {
+/* スマホ専用のアイコン補正（最優先で適用）  */
+@media only screen and (max-width: 375px) and (max-height: 812px) {
 
   .box1 { top: 10.5%; left: 2%; }
   .box2 { top: 82%; left: 57%; }
@@ -1036,20 +1127,83 @@ section[id] {
   width: 70px !important;
   height: auto !important;
 }
-  
+}
+
+/* 414px 周辺（Pixel7 / iPhone XR / Galaxy S20） */
+@media only screen and (min-width: 400px) and (max-width: 430px) {
+  .box1 { top: 11%; left: 2%; }
+  .box2 { top: 82%; left: 57%; }
+  .box3 { top: 82%; left: 40%; }
+  .box4 { top: 82%; left: 11%; }
+  .box5 { top: 70%; left: 71%; }
+  .box6 { top: 56%; left: 64%; }
+  .box7 { top: 84%; left: -1%; }
+  .box8 { top: 82%; left: 76%; }
+  .box9 { top: 82%; left: 28%; }
+  .box10 { top: 56%; left: 22%; }
+  .box11 { top: 10%; left: 77%; }
+  .box12 { top: 42%; left: 0%; }
+  .box13 { top: 40.5%; left: 58%; }
+  .box14 { top: 20%; left: 50%; }
+  .box15 { top: 31%; left: 13%; }
+}
+
+/* iPhone 12 Pro（縦） */
+@media only screen and (min-width: 390px) and (max-width: 390px) {
+ .box1 { top: 11%; left: 2%; }
+  .box2 { top: 82%; left: 57%; }
+  .box3 { top: 82%; left: 40%; }
+  .box4 { top: 82%; left: 11%; }
+  .box5 { top: 69%; left: 71%; }
+  .box6 { top: 55%; left: 63%; }
+  .box7 { top: 84%; left: -1%; }
+  .box8 { top: 82%; left: 76%; }
+  .box9 { top: 82%; left: 28%; }
+  .box10 { top: 55.5%; left: 22%; }
+  .box11 { top: 9.5%; left: 77%; }
+  .box12 { top: 42%; left: 0%; }
+  .box13 { top: 40%; left: 58%; }
+  .box14 { top: 20%; left: 50%; }
+  .box15 { top: 31%; left: 13%; }
 }
 
 
+/* iPhone 12/13 mini 専用 */
+@media only screen 
+  and (device-width: 380px) 
+  and (device-height: 812px) 
+  and (orientation: portrait) {
+  
+  /* ここに iPhone mini 用の位置を書く */
+  .box1 { top: 11%; left: 2%; }
+  .box2 { top: 82%; left: 57%; }
+  .box3 { top: 82%; left: 40%; }
+  .box4 { top: 82%; left: 11%; }
+  .box5 { top: 70%; left: 71%; }
+  .box6 { top: 54%; left: 64%; }
+  .box7 { top: 84%; left: -2%; }
+  .box8 { top: 82%; left: 76%; }
+  .box9 { top: 82%; left: 28%; }
+  .box10 { top: 58%; left: 20%; }
+  .box11 { top: 10%; left: 78%; }
+  .box12 { top: 44%; left: 0%; }
+  .box13 { top: 38.5%; left: 58%; }
+  .box14 { top: 20%; left: 51%; }
+  .box15 { top: 31%; left: 13%; }
+  
+  }
 
+  /* iPad mini（縦）用：スマホ縮小を強制キャンセル */
+@media only screen 
+  and (min-device-width: 744px)
+  and (max-device-width: 820px)
+  and (orientation: portrait) {
 
+  .icon,
+  .small-icon {
+    width: 100px !important;
+    height: auto !important;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
+ 
