@@ -1110,15 +1110,15 @@ section[id] {
   .box2 { top: 82%; left: 57%; }
   .box3 { top: 82%; left: 40%; }
   .box4 { top: 82%; left: 11%; }
-  .box5 { top: 69%; left: 71%; }
-  .box6 { top: 54%; left: 63%; }
+  .box5 { top: 67.8%; left: 71%; }
+  .box6 { top: 53.8%; left: 63%; }
   .box7 { top: 84%; left: -2%; }
   .box8 { top: 82%; left: 76%; }
   .box9 { top: 82%; left: 28%; }
-  .box10 { top: 54%; left: 20%; }
+  .box10 { top: 53.3%; left: 20%; }
   .box11 { top: 9%; left: 77%; }
   .box12 { top: 42%; left: 0%; }
-  .box13 { top: 38.5%; left: 58%; }
+  .box13 { top: 38%; left: 58%; }
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 
@@ -1135,34 +1135,34 @@ section[id] {
   .box2 { top: 82%; left: 57%; }
   .box3 { top: 82%; left: 40%; }
   .box4 { top: 82%; left: 11%; }
-  .box5 { top: 70%; left: 71%; }
-  .box6 { top: 56%; left: 64%; }
+  .box5 { top: 69.6%; left: 71%; }
+  .box6 { top: 55%; left: 64%; }
   .box7 { top: 84%; left: -1%; }
   .box8 { top: 82%; left: 76%; }
   .box9 { top: 82%; left: 28%; }
-  .box10 { top: 56%; left: 22%; }
+  .box10 { top: 55.8%; left: 22%; }
   .box11 { top: 10%; left: 77%; }
   .box12 { top: 42%; left: 0%; }
-  .box13 { top: 40.5%; left: 58%; }
+  .box13 { top: 40%; left: 58%; }
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
 
 /* iPhone 12 Pro（縦） */
 @media only screen and (min-width: 390px) and (max-width: 390px) {
- .box1 { top: 11%; left: 2%; }
+ .box1 { top: 10.8%; left: 2%; }
   .box2 { top: 82%; left: 57%; }
   .box3 { top: 82%; left: 40%; }
   .box4 { top: 82%; left: 11%; }
-  .box5 { top: 69%; left: 71%; }
-  .box6 { top: 55%; left: 63%; }
+  .box5 { top: 68.6%; left: 71%; }
+  .box6 { top: 54.5%; left: 63%; }
   .box7 { top: 84%; left: -1%; }
   .box8 { top: 82%; left: 76%; }
   .box9 { top: 82%; left: 28%; }
-  .box10 { top: 55.5%; left: 22%; }
+  .box10 { top: 55.2%; left: 22%; }
   .box11 { top: 9.5%; left: 77%; }
   .box12 { top: 42%; left: 0%; }
-  .box13 { top: 40%; left: 58%; }
+  .box13 { top: 39.5%; left: 58%; }
   .box14 { top: 20%; left: 50%; }
   .box15 { top: 31%; left: 13%; }
 }
@@ -1198,12 +1198,33 @@ section[id] {
   and (min-device-width: 744px)
   and (max-device-width: 820px)
   and (orientation: portrait) {
-
+  
+  .box1 { top: 14%; left: 8%; }
+  .box2 { top: 88%; left: 64%; }
+  .box3 { top: 88%; left: 48%; }
+  .box4 { top: 88%; left: 23%; }
+  .box5 { top: 75.5%; left: 74.5%; }
+  .box6 { top: 60.2%; left: 68%; }
+  .box7 { top: 88%; left: 8%; }
+  .box8 { top: 88%; left: 78%; }
+  .box9 { top: 88%; left: 36%; }
+  .box10 { top: 59%; left: 24%; }
+  .box11 { top: 13.2%; left: 81.5%; }
+  .box12 { top: 44%; left: 4%; }
+  .box13 { top: 42.8%; left: 59%; }
+  .box14 { top: 24%; left: 52%; }
+  .box15 { top: 33%; left: 15%; }
+  
   .icon,
   .small-icon {
     width: 100px !important;
     height: auto !important;
   }
+
 }
 
  
+
+
+ 
+
