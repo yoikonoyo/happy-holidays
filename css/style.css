@@ -204,12 +204,13 @@ body {
   margin-top: -10px;/* ← 60px →-10px に変更でギュッと詰まる */
 }
 
-/* ツリー画像（背景） */
-.tree-container img {
+/*  heroアニメ画像 */
+.tree-container video {
   width: 100%;
   height: auto;
   display: block;
 }
+
 
 /* ❄️ 降る雪エフェクト */
 .tree-container::before {
@@ -1201,6 +1202,7 @@ section[id] {
 }
 
  
+
 
 
 
