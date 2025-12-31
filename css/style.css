@@ -303,14 +303,14 @@ body {
 
 /* box5 */
 .box5 {
-  top: 74.5%;
+  top: 73.5%;
   left: 74%;
   transform: translate(-185px, -187px);
 }
 
 /* box6 */
 .box6 {
-  top: 59.6%;
+  top: 58.6%;
   left: 67%;
   transform: translate(-153px, -187px);
 }
@@ -338,7 +338,7 @@ body {
 
 /* box10 */
 .box10 {
-  top: 58.2%;
+  top: 57.2%;
   left: 24%;
   transform: translate(-178px, -187px);
 
@@ -360,7 +360,7 @@ body {
 
 /* box13（cat） */
 .box13 {
-  top: 41.8%;
+  top: 40.8%;
   left: 60%;
   transform: translate(-165px, -187px);
 }
@@ -1201,5 +1201,6 @@ section[id] {
 }
 
  
+
 
 
